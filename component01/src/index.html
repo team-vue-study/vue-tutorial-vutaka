@@ -8,7 +8,12 @@
 </head>
 <body>
     <div id="app">
-        <my-component></my-component>
+        <!-- コンポに値を渡すだけでは元データは更新されない。 -->
+        <my-component v-bind:val="hoge"></my-component>
+        <my-input-component v-bind:val="hoge"></my-input-component>
+        <!-- 親から更新をかけると更新される -->
+        <input v-model="hoge">
+        <p>{{hoge}}</p>
     </div>
     <script src="js/vue.js"></script>
     <script src="main.js"></script>
