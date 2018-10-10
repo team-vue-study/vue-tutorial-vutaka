@@ -1,0 +1,21 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div id="app">
+        <!-- コンポに値を渡し親データを更新するためカスタムイベントを作成する。 -->
+        <my-component v-bind:val="hoge"></my-component>
+        <my-input-component v-bind:val="hoge" v-on:child-update="parentUpdate"></my-input-component>
+        <!-- 親から更新をかけると更新される -->
+        <input v-model="hoge">
+        <p>{{hoge}}</p>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
