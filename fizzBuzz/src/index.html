@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+</head>
+<body>
+    <div id="app">
+        <ol>
+            <ul v-for="item in 100" v-if="(item % 15) == 0">{{ item }}:FizzBuzz</ul>
+            <ul v-else-if="(item % 5) == 0">{{ item }}:Buzz</ul>
+            <ul v-else-if="(item % 3) == 0">{{ item }}:Fizz</ul>
+            <ul v-else>{{ item }}</ul>
+        </ol>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

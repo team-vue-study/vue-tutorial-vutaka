@@ -1,0 +1,24 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div id="app">
+        <input v-model="input.name">
+        <input v-model="input.hp">
+        <button v-on:click="doAdd">追加</button>
+        <ul>
+            <li v-for="(item, index) in list" v-bind:key="item.id">
+                ID:{{item.id}} 名前:{{item.name}} HP:{{item.hp}}
+                <button v-on:click="doRemove(index)">削除</button>
+            </li>
+        </ul>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

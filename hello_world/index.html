@@ -1,0 +1,28 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div id="app">
+        <h1 v-if="show">{{ message }}</h1>
+        <div>
+            <ol>
+                <li v-for="item in list">{{ item }}</li>
+            </ol>
+        </div>
+        <div>
+            <button v-on:click="handleClick">please Click</button>
+        </div>
+        <div>
+            <input v-model="message">
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+    <script src="main.js"></script>
+</body>
+</html>

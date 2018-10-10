@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+</head>
+<body>
+    <div id="app" v-cloak>
+        <div>
+            <a v-bind:href="url" v-pre>
+                {{message}}
+            </a>
+        </div>
+        <div>
+            <a v-bind:href="url" v-once>
+                {{message}}
+            </a>
+        </div>
+        <div>
+            <span v-text="message"></span>
+        </div>
+        <div>
+            <span>{{title}}</span>
+            <span v-html="title"></span>
+        </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

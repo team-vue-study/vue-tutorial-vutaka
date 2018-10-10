@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+</head>
+<body>
+    <div id="app">
+        <div>
+            <!-- preventで右クリックのデフォルトイベントコンテキストメニューの表示するを封じる -->
+            <div v-on:click.right="handler">右クリック</div>
+            <div v-on:click.right.prevent="handler">右クリック</div>
+        </div>
+        <div>
+            <!-- stopでイベントのバブリングを封じる -->
+            <div v-on:click="handler('div1')">
+                div1
+                <a href="#top" v-on:click.stop="handler('div2')">div2</a>
+            </div>
+        </div>
+        <div>
+            <!-- preventでデフォルトイベントの遷移を封じる -->
+            <div v-on:click="handler('div1')">
+                div1
+                <a href="#top" v-on:click.prevent="handler('div2')">div2</a>
+            </div>
+        </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+</head>
+<body>
+    <div id="app">
+        <div>
+            <!-- テキストの入力 -->
+            <input v-model="text">
+            <p>{{text}}</p>
+        </div>
+        <div>
+            <!-- 日本語入力も確定前に反映できる -->
+            <input v-bind:value="text2" v-on:input="updateText2" >
+            <p>{{text2}}</p>
+        </div>
+        <div>
+            <!-- テキストエリア -->
+            <textarea v-model="textarea" ></textarea>
+            <p>{{textarea}}</p>
+        </div>
+        <div>
+            <!-- 単一チェックボックス -->
+            <label>
+                <input type="checkbox" v-model="unitCheckbox" >{{unitCheckbox}}
+            </label>
+        </div>
+        <div>
+            <!-- 単一チェックボックス(valueの指定) -->
+            <label>
+                <input type="checkbox" v-model="unitCheckbox2" true-value="yes" false-value="no">{{unitCheckbox2}}
+            </label>
+        </div>
+        <div>
+            <!-- 単一チェックボックス(valueの指定) -->
+            <label>
+                <input type="checkbox" v-model="unitCheckbox2" true-value="yes" false-value="no">{{unitCheckbox2}}
+            </label>
+        </div>
+        <div>
+            <!-- 複数チェックボックス -->
+            <label v-for="val in checkboxValues"><input type="checkbox" v-model="checkboxChecked" v-bind:value="val">{{val}}</label>
+            <ul>
+                <li v-for="item in checkboxChecked" v-text="item"></li>
+            </ul>
+        </div>
+        <div>
+            <!-- 単一選択肢のセレクト -->
+            <select v-model="unitSelect">
+                <option v-for="item in selectOptions" v-bind:value="item.value">{{item.label}}</option>
+            </select>
+            <p v-for="item in selectOptions" v-if="unitSelect == item.value">{{item.value}} : {{item.label}}</p>
+        </div>
+        <div>
+            <!-- 複数選択肢のセレクト -->
+            <select v-model="multipleSelect" multiple>
+                <option v-for="item in selectOptions" v-bind:value="item.value">{{item.label}}</option>
+            </select>
+            <p>{{multipleSelect}}</p>
+        </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
