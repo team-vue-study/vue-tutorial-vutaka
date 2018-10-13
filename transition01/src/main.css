@@ -1,0 +1,17 @@
+@keyframes cloak-in {
+    0% {opacity: 0;}
+}
+#app {
+    animation: cloak-in 1s;
+}
+#app[v-cloak]{
+    opacity: 0;
+}
+/* 追加されるときxxx-enter→xxx-enter-active, xxx-enter-to */
+/* 削除されるときxxx-leave→xxx-leave-active, xxx-leave-to */
+.demo-enter-active, .demo-leave-active {
+    transition: opacity 5s;
+}
+.demo-enter, .demo-leave-to{
+    opacity: 0;
+}
