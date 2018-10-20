@@ -9,7 +9,21 @@
 </head>
 <body>
     <div id="app" v-cloak>
-        <playing-card v-bind:card="deck[3]"/>
+        <div>
+            <button @click="draw(playerCards)">ドロー</button>
+        </div>
+        <div>
+            <p>ディーラーの合計{{sumDealerCard}}</p>
+        </div>
+        <div>
+            <p>あたなの合計{{sumPlayerCard}}</p>
+        </div>
+        <div>
+            <ol>
+                <li v-for="pCard in playerCards"><playing-card v-bind:card="pCard"/></li>
+            </ol>
+        </div>
+
     </div>
     <script src="js/vue.js"></script>
     <script src="main.js"></script>
