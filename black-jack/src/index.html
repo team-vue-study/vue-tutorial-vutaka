@@ -9,19 +9,21 @@
 </head>
 <body>
     <div id="app" v-cloak>
+        <h1>{{resultMessage}}</h1>
         <div>
             <!-- そのまま定義した内容を使える。リテラル入れたいならシングルクオートで囲う。 -->
-            <button @click="hit(playerCards)">ヒット</button>
+            <button @click="hit(player)" :disabled="isStandPlayer">ヒット</button>
+            <button @click="stand(player)" :disabled="isStandPlayer">スタンド</button>
         </div>
         <div>
-            <p>ディーラーの合計{{sumDealerCard}}</p>
+            <p v-if="isStandDealer">ディーラー：{{viewDealerSum}}</p>
         </div>
         <div>
-            <p>あたなの合計{{sumPlayerCard}}</p>
+            <p>あたな：{{viewPlayerSum}}</p>
         </div>
         <div>
             <ol>
-                <li v-for="pCard in playerCards"><playing-card v-bind:card="pCard"/></li>
+                <li v-for="pCard in player.cards"><playing-card v-bind:card="pCard"/></li>
             </ol>
         </div>
     </div>
