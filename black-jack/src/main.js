@@ -92,6 +92,7 @@ new Vue({
             if(this.player.sum > this.dealer.sum) {
                 this.resultMessage = 'You Win!'
             } else {
+                // 引き分けは負け
                 this.resultMessage = 'You Lose...'
             }
         }

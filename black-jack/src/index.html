@@ -16,14 +16,15 @@
             <button @click="stand(player)" :disabled="isStandPlayer">スタンド</button>
         </div>
         <div>
-            <p v-if="isStandDealer">ディーラー：{{viewDealerSum}}</p>
-        </div>
-        <div>
-            <p>あたな：{{viewPlayerSum}}</p>
-        </div>
-        <div>
+                <p>あなた：{{viewPlayerSum}}</p>
+                <ol>
+                    <li v-for="pCard in player.cards"><playing-card v-bind:card="pCard"/></li>
+                </ol>
+            </div>
+        <div v-if="isStandDealer">
+            <p>ディーラー：{{viewDealerSum}}</p>
             <ol>
-                <li v-for="pCard in player.cards"><playing-card v-bind:card="pCard"/></li>
+                <li v-for="pCard in dealer.cards"><playing-card v-bind:card="pCard"/></li>
             </ol>
         </div>
     </div>
