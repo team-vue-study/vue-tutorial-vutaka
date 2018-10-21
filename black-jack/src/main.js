@@ -36,7 +36,7 @@ new Vue({
         rand: function() {
             return Math.floor(Math.random() * this.deck.length);
         },
-        draw: function(cards) {
+        hit: function(cards) {
             cards.push(...(this.deck.splice(this.rand(), 1)));
         },
         toSumCards: function(cards){
@@ -48,13 +48,14 @@ new Vue({
         }
     },
     computed: {
+        // アロー関数使うとthisが束縛されないからfunctionとするっきゃない
         sumPlayerCard: function() {return this.toSumCards(this.playerCards)},
         sumDealerCard: function() {return this.toSumCards(this.dealerCards)}
     },
     mounted: function() {
-        this.draw(this.playerCards);
-        this.draw(this.playerCards);
-        this.draw(this.dealerCards);
-        this.draw(this.dealerCards);
+        this.hit(this.playerCards);
+        this.hit(this.playerCards);
+        this.hit(this.dealerCards);
+        this.hit(this.dealerCards);
     }
 })

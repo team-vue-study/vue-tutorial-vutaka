@@ -10,7 +10,8 @@
 <body>
     <div id="app" v-cloak>
         <div>
-            <button @click="draw(playerCards)">ドロー</button>
+            <!-- そのまま定義した内容を使える。リテラル入れたいならシングルクオートで囲う。 -->
+            <button @click="hit(playerCards)">ヒット</button>
         </div>
         <div>
             <p>ディーラーの合計{{sumDealerCard}}</p>
@@ -23,7 +24,6 @@
                 <li v-for="pCard in playerCards"><playing-card v-bind:card="pCard"/></li>
             </ol>
         </div>
-
     </div>
     <script src="js/vue.js"></script>
     <script src="main.js"></script>
