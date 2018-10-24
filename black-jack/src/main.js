@@ -6,7 +6,17 @@ class Card {
 }
 
 const plaingCard = {
-    template: '<span>{{card.mark}} : {{card.num}}</span>',
+    template:
+    `<div class="card">
+        <div class="display-mark top-left">
+            <span>{{card.num}}</span>
+            <span v-html="card.mark" />
+        </div>
+        <div class="display-mark bottom-right">
+            <span>{{card.num}}</span>
+            <span v-html="card.mark" />
+        </div>
+    </div>`,
     props: {
         card: Card
     }
@@ -34,7 +44,7 @@ new Vue({
     created: function(){
         // トランプの山を作成。
         const numArry = [...new Array(13).keys()].map(i => ++i);
-        const markArry = ['heart', 'spade', 'daia', 'clover'];
+        const markArry = ['&hearts;', '&spades;', '&diams;', '&clubs;'];
         numArry.forEach(num => {
             markArry.forEach(mark => {
                 this.deck.push(new Card(mark, num));
