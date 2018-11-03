@@ -9,13 +9,13 @@
 npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+yarn run dev
 
 # build for production with minification
-npm run build
+yarn run build
 
 # build for production and view the bundle analyzer report
-npm run build --report
+yarn run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
@@ -23,10 +23,11 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ## タスク
 
 - [ ] todo を一覧表示できる
-    - [ ] ストアの作成
-    - [ ] ただのtableで表示
-    - [ ] tableのコンポ化
-    - [ ] クリックすると編集できるコンポ
+  - [x] とりあえずダミーデータでtodoを表示
+  - [ ] ストアの作成
+  - [ ] ただのtableで表示
+  - [ ] tableのコンポ化
+  - [ ] クリックすると編集できるコンポ
 - [ ] todo を登録できる
 - [ ] todo の状態を変更できる
 - [ ] 期限の近い順にソートする
