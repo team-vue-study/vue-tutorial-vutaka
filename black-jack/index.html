@@ -19,9 +19,14 @@
             <p>あなた：{{viewPlayerSum}}</p>
             <playing-card v-for="pCard in player.cards" v-bind:card="pCard"/>
         </div>
-        <div v-if="isStandDealer">
-            <p>ディーラー：{{viewDealerSum}}</p>
-            <playing-card v-for="dCard in dealer.cards" v-bind:card="dCard"/>
+        <div>
+            <p>ディーラー：{{(isStandDealer) ? viewDealerSum : ""}}</p>
+            <template v-if="isStandDealer">
+                <playing-card v-for="dCard in dealer.cards" :card="dCard" />
+            </template>
+            <template v-else>
+                <playing-card :card="dealer.cards[0]" />
+            </template>
         </div>
     </div>
     <script src="js/vue.js"></script>
