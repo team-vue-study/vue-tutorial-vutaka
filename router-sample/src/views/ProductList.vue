@@ -2,7 +2,7 @@
   <div class="product">
     <h1>商品一覧</h1>
     <ul>
-      <li v-for="{id, name} in list" :key="id">
+      <li v-for="{id, name} in allProducts" :key="id">
         <router-link :to="`/product/${id}`">{{name}}</router-link>
       </li>
     </ul>
@@ -10,10 +10,15 @@
 </template>
 
 <script>
-import products from '@/api/product.js'
+import {mapGetters} from 'vuex'
+
 export default {
-  computed:{
-    list: () => products.fetch()
+  computed: mapGetters('products', ['allProducts']),
+  created() {
+    this.$store.dispatch('products/fetch')
+  },
+  beforeDestory(){
+    this.$store.dispatch('products/destory')
   }
 }
 </script>

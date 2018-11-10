@@ -4,7 +4,10 @@ import HelloWorld from '@/components/HelloWorld'
 import Home from '@/views/Home'
 import Product from '@/views/Product'
 import ProductList from '@/views/ProductList'
-
+// product
+import ProductHome from '@/views/Product/Home'
+import ProductReview from '@/views/Product/Review'
+import ProductReviewDetail from '@/views/Product/ReviewDetail'
 
 Vue.use(Router)
 
@@ -31,7 +34,25 @@ export default new Router({
       path: '/product/:id(\\d+)',
       name: 'Product',
       component: Product,
-      props: route => ({id: Number(route.params.id)})
+      props: route => ({id: Number(route.params.id)}),
+      children: [
+        // デフォルトのルート
+        {
+          name: 'product-home',
+          path:'',
+          component: ProductHome
+        },
+        {
+          name: 'product-review',
+          path: 'review',
+          component: ProductReview
+        },
+        {
+          name: 'review-detail',
+          path: 'review/:rid',
+          component: ProductReviewDetail
+        }
+      ]
     }
   ]
 })
